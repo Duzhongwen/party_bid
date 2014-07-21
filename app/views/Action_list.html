@@ -1,0 +1,37 @@
+<header>
+    活动列表
+    <div class="header-right">
+        <button class="btn-style btn-4" ng-click="action_order()">创建活动</button>
+    </div>
+
+
+</header>
+    <!--</div>-->
+
+        <!--<div class="break20">-->
+        <!--<button  class="btn btn-default btn-lg btn-block"  style="text-align: center  "ng-repeat="list in lists"-->
+                 <!--ng-click="enter_Registration(Action_name)">{{list}}</button>-->
+        <!--</div>-->
+        <!--<div ng-repeat="list in lists">list</div>-->
+<!--<ul class="list-style-2 ">-->
+    <!--<li class=" clearfix btn-default" ng-repeat="list in lists" ng-click="enter_Registration(Action_name)">-->
+        <!--<p class="p-left">{{list}}</p>-->
+        <!--<span class="glyphicon glyphicon-circle-arrow-right p-right"></span>-->
+    <!--</li>-->
+<!--</ul>-->
+
+    <div id="wrapper" class="wrapper scrollable">
+        <ul class="list-style-2">
+            <li class=" clearfix btn-default" ng-repeat="list in lists" ng-click='enter_Registration(list)'>
+                <p class="pagination-centered">{{list}}</p>
+                <span class="glyphicon  p-right"></span>
+            </li>
+        </ul>
+
+    </div>
+
+
+        <!--<div class="break20">-->
+            <!--<button  class="btn-style btn-3" style="text-align: center"
+            ng-repeat="list in lists" ng-click="enter_Registration(Action_name)"> {{list}}</button>-->
+        <!--</div>-->
