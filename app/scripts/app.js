@@ -20,8 +20,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/Action_list.html',
+        controller: 'Action_listCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -31,9 +31,9 @@ angular
             templateUrl: 'views/Creat_Action.html',
             controller: 'Creat_ActionCtrl'
         })
-      .when('/Action_list',{
-            templateUrl: 'views/Action_list.html',
-            controller: 'Action_listCtrl'
+      .when('/main',{
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl'
         })
       .otherwise({
         redirectTo: '/'

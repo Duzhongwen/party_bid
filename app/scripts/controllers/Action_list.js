@@ -17,7 +17,7 @@ angular.module('partyBidApp')
             'Karma'
         ];
         $scope.action_order=function(){
-            $location.path('/');
+            $location.path('/main');
         }
         //$scope.Action_lname=
           //  localStorage.getItem("Action_name");

@@ -15,15 +15,13 @@ angular.module('partyBidApp')
       'Karma'
     ];
         $scope.creat_order=function(action_name){
-
+            var number;
             localStorage.setItem('action_name',action_name);
             var list_json= JSON.parse(localStorage['Action_name'] || '[]');
-            function setjosn() {
-                list_json = eval(list_json);
-                for (var i = 0; i < list_json; i++) {
+                for (var i = 0; i < list_json.length; i++) {
                     var s = list_json[i];
-                    if (action_name = s) {
-                        var number=1;
+                    if (action_name == s) {
+                         number=1;
                     }
                 }
                 if(number==1){
@@ -31,13 +29,15 @@ angular.module('partyBidApp')
                 }
                 else{
                     $location.path('/Creat_Action');
+                    list_json.unshift(action_name);
+                    localStorage['Action_name'] = JSON.stringify(list_json);
                 }
-            }
-            list_json.unshift(action_name);
-            localStorage['Action_name'] = JSON.stringify(list_json);
+
+//            list_json.unshift(action_name);
+//            localStorage['Action_name'] = JSON.stringify(list_json);
         }
         $scope.return1_order=function(){
-            $location.path('/Action_list');
+            $location.path('/');
         }
 
   });

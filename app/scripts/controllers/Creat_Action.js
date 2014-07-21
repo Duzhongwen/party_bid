@@ -19,7 +19,7 @@ angular.module('partyBidApp')
         ];
         $scope.item=localStorage.getItem('action_name');
         $scope.return_order=function(){
-            $location.path('/Action_list');
+            $location.path('/');
         }
 //        $scope.item=localStorage.getItem('activity_name');
         //console.log('item');
