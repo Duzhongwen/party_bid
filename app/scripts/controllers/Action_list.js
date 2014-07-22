@@ -16,13 +16,17 @@ angular.module('partyBidApp')
             'AngularJS',
             'Karma'
         ];
+
         $scope.action_order=function(){
             $location.path('/main');
         }
         //$scope.Action_lname=
           //  localStorage.getItem("Action_name");
-
         $scope.lists=JSON.parse(localStorage['Action_name'] || '[]');
+        var list1=JSON.parse(localStorage['Action_name'] || '[]');
+        if(list1==0){
+            $location.path('/main');
+        }
         $scope.enter_Registration=function(list){
            localStorage.setItem('action_name',list);
            $location.path('/Creat_Action');

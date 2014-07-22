@@ -14,6 +14,8 @@ angular.module('partyBidApp')
       'AngularJS',
       'Karma'
     ];
+        var list_json= JSON.parse(localStorage['Action_name'] || '[]');
+        $scope.listlength=list_json;
         $scope.creat_order=function(action_name){
             var number;
             localStorage.setItem('action_name',action_name);
@@ -32,7 +34,6 @@ angular.module('partyBidApp')
                     list_json.unshift(action_name);
                     localStorage['Action_name'] = JSON.stringify(list_json);
                 }
-
 //            list_json.unshift(action_name);
 //            localStorage['Action_name'] = JSON.stringify(list_json);
         }
