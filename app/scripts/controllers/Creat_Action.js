@@ -21,6 +21,12 @@ angular.module('partyBidApp')
         $scope.return_order=function(){
             $location.path('/');
         }
+        $scope.activity="开始";
+        $scope.start_order=function() {
+            $scope.activity="结束";
+
+
+        }
 //        $scope.item=localStorage.getItem('activity_name');
         //console.log('item');
         //localStorage['activitykey']=JSON.stringify(list_json);

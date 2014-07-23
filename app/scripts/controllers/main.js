@@ -27,7 +27,7 @@ angular.module('partyBidApp')
                     }
                 }
                 if(number==1){
-                    alert("活动名称重复，重新输入");
+                    $scope.warn="活动名称重复，重新输入";
                 }
                 else{
                     $location.path('/Creat_Action');

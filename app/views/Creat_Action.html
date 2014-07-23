@@ -1,18 +1,22 @@
 <header>
     报名
-    <div class="header-right">
+    <div class="header-left">
         <button  class="btn-style btn-4" ng-click="return_order()">返回</button>
     </div>
-
+    <div class="header-right">
+        <button  class="btn-style btn-4" ng-click="start_order()">{{activity}}</button>
+</div>
 </header>
 <div class="wrapper">
     <h4>活动名：</h4>
     <div class="well">{{item}}</div>
     <!--<button class="footer-nav footer-nav-2tabs" class="icon-group" >报名</button>-->
     <!--<button  class="footer-nav footer-nav-2tabs"  class="icon-group" >竞价</button>-->
-    <ul class="footer-nav footer-nav-2tabs">
-    <li><a><br/>报名</a></li>
-    <li><a><br/>竞价</a></li>
-    </ul>
-</div>
 
+</div>
+<footer>
+    <ul class="footer-nav footer-nav-2tabs">
+        <li><a><br/>报名</a></li>
+        <li><a><br/>竞价</a></li>
+    </ul>
+    </footer>
