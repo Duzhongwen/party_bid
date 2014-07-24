@@ -34,15 +34,17 @@ angular.module('partyBidApp')
 //                    console.log("对不起，报名结束");
 //                }
 //        }
-        $scope.refesh=function(){
-            var name=localStorage.getItem('name');
-            var number=localStorage.getItem('number');
-            $scope.name1 = name;
-            $scope.number1 = number;
+        $scope.refresh=function(){
+            $scope.Messages=JSON.parse(localStorage['messages'] || '[]');
+            //var name=localStorage.getItem('name');
+            //var number=localStorage.getItem('number');
+            //$scope.name1 = name;
+            //$scope.number1 = number;
+
             console.log("恭喜你，报名成功");
             };
-        $scope.refesh();
 
+        $scope.refresh();
         $scope.start_order=function() {
             if($scope.activity=="开始"){
                 $scope.activity="结束";
