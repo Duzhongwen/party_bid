@@ -11,16 +11,26 @@ var native_accessor = {
             this.process_received_message(json_message);
         }
     },
-
     process_received_message: function (json_message) {
-
+        var message_json=JSON.stringify(json_message);//将json_message转化为字符串
+        var Message=JSON.parse(localStorage['message_json'] || '[]');
+        var phone_number=json_message.messages[0].phone;
+        var name=json_message.messages[0].message;
+        console.log(name);
+        console.log(phone_number);
+        localStorage.setItem("number",phone_number);
+        localStorage.setItem("name",name);
+        var RegistrationScope = angular.element("#Registration").scope();
+        RegistrationScope.$apply(function () {
+            RegistrationScope.refresh();
+        });
     }
 }
-function notify_message_received(message_json) {
+function notify_message_received(json_message) {
     //console.log(JSON.stringify(message_json));
     //JSON.stringify(message_json);
     //alert(JSON.stringify(message_json.messages));
-    native_accessor.receive_message(message_json);
+    native_accessor.receive_message(json_message);
     //phone_number=message_json.messages[0].phone;
 }
 
