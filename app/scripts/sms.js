@@ -25,11 +25,13 @@ var native_accessor = {
 //            }
         }
         else{
+            var storage_message=localStorage.getItem('action_name')+"messages";
             var phone_number=json_message.messages[0].phone;
             var name=json_message.messages[0].message;
-            var Message=JSON.parse(localStorage['messages'] || '[]');
+            var Message=JSON.parse(localStorage[storage_message] || '[]');
+            console.log("Message:"+Message);
             Message.unshift(name,phone_number);
-            localStorage['messages'] = JSON.stringify(Message);
+            localStorage[storage_message] = JSON.stringify(Message);
             //localStorage.setItem("number",phone_number);
             //localStorage.setItem("name",name);
 
@@ -42,11 +44,11 @@ var native_accessor = {
 
     }
 };
-function notify_message_received(json_message) {
+    function notify_message_received(json_message) {
     //console.log(JSON.stringify(message_json));
     //JSON.stringify(message_json);
     //alert(JSON.stringify(message_json.messages));
     native_accessor.receive_message(json_message);
     //phone_number=message_json.messages[0].phone;
-}
+    }
 
