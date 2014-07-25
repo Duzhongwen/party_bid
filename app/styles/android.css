@@ -735,7 +735,10 @@ footer {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-
+.true{
+    color: #ffff00;
+    !important;
+}
 
 
 

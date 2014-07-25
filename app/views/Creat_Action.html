@@ -7,15 +7,13 @@
         <button  class="btn-style btn-4" ng-click="start_order()">{{activity}}</button>
 </div>
 </header>
+
 <div class="wrapper scrollable">
     <ul class="list-style-2">
         <li class=" clearfix btn-default" ng-repeat="message in  Messages">
-            <p class="pagination-centered">{{message}}</p>
-
-            <span class="glyphicon  p-right"></span>
+            <h3 class="{{message==current_message}}">{{message}}</h3>
         </li>
     </ul>
-
 </div>
 <footer>
     <ul class="footer-nav footer-nav-2tabs">
