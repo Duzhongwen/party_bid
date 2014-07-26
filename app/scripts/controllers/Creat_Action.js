@@ -34,6 +34,7 @@ angular.module('partyBidApp')
             //$scope.name1 = namevar
             //$scope.number1 = number;
             //$scope.activity=name;
+            $scope.number=localStorage.getItem('number');
     }
         $scope.start_order=function() {
             if($scope.activity=="开始"){
@@ -68,5 +69,4 @@ angular.module('partyBidApp')
        // localStorage.setItem('name',$scope.activity);
         $scope.refresh();
         localStorage.setItem("status",activity_status);
-       // localStorage.setItem('Item',item);
     });
