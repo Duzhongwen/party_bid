@@ -48,6 +48,7 @@ angular.module('partyBidApp')
             if($scope.activity=="开始"){
                 $scope.activity="结束";
                        $scope.refresh();
+                localStorage.setItem('Item',item);
                 // $scope.number=localStorage.getItem('number');
                 //报名处于为开始状态点击的开始
             }else{ //报名正在进行中时点击的结束
@@ -58,6 +59,7 @@ angular.module('partyBidApp')
                 else{
                     $scope.activity="结束 ";//点击否,继续报名
                         $scope.refresh();
+                    localStorage.setItem('Item',item);
                 }
             }
             if ($scope.activity == "结束") {
@@ -74,8 +76,9 @@ angular.module('partyBidApp')
         else {
             activity_status=true;
         }
-       localStorage.setItem('Item',item);
+       
         $scope.refresh();
+
 //        $scope.mesages= $.grep($scope.Messages,function(i){
 //                    return i<2;
 //        });
