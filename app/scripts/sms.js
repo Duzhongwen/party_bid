@@ -32,7 +32,7 @@ var native_accessor = {
             i++;
             count=count+i;
             localStorage.setItem('a',i);
-            console.log(count);
+
             var phone_number=json_message.messages[0].phone;
             var name=json_message.messages[0].message;
             var Message=JSON.parse(localStorage[storage_message] || '[]');

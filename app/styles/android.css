@@ -574,7 +574,7 @@ footer {
 }
 
 .list-style-2 li {
-	padding:0 10px;
+	padding:0 0px;
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #fff;
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fcfcfc), color-stop(1, #ececec));

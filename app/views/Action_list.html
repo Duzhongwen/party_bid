@@ -20,8 +20,8 @@
 <!--</ul>-->
     <div id="wrapper" class="wrapper scrollable">
         <ul class="list-style-2">
-            <li class=" clearfix btn-default" class="true" ng-repeat="list in lists " ng-click='enter_Registration(list)'>
-                <p class="pagination-centered" >{{list}}</p>
+            <li class=" clearfix btn-default"  ng-repeat="list in lists " ng-click='enter_Registration(list)'style="height: 40px">
+                <p  class=" pagination-centered {{Items==list}}" style="height: 40px;width:1285px;">{{list}}</p>
                 <span class="glyphicon  p-right"></span>
             </li>
         </ul>

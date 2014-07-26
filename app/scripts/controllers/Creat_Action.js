@@ -74,7 +74,7 @@ angular.module('partyBidApp')
         else {
             activity_status=true;
         }
-       // localStorage.setItem('name',$scope.activity);
+       localStorage.setItem('Item',item);
         $scope.refresh();
 //        $scope.mesages= $.grep($scope.Messages,function(i){
 //                    return i<2;
