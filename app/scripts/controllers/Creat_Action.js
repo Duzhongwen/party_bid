@@ -27,22 +27,30 @@ angular.module('partyBidApp')
         var activity_status;
         var item=localStorage.getItem('action_name');
         console.log(item);
+        var pan;
+        //$scope.number=0;
         $scope.refresh = function (){
             $scope.Messages= JSON.parse(localStorage[storage_message] || '[]');
+            var num=JSON.parse(localStorage[storage_message] || '[]');
+            $scope.nums=num.length/2;
             //var name=localStorage.getItem('name');
             //var number=localStorage.getItem('number');
             //$scope.name1 = namevar
             //$scope.number1 = number;
             //$scope.activity=name;
-            $scope.number=localStorage.getItem('number');
+//            if($scope.activity=="开始"){
+//                pan=false;//活动关闭状态，返回false
+//            }else{
+//                pan=true;//活动开启状态，返回true
+//            }
     }
         $scope.start_order=function() {
             if($scope.activity=="开始"){
                 $scope.activity="结束";
                        $scope.refresh();
                 // $scope.number=localStorage.getItem('number');
-                //报名进行中，点击的开始
-            }else{ //报名已结束,点击的结束
+                //报名处于为开始状态点击的开始
+            }else{ //报名正在进行中时点击的结束
                 //$scope.activity=="开始";
                 if(confirm("确认要结束本次报名？")){
                     $scope.activity="开始";//点击是,结束报名
@@ -68,5 +76,10 @@ angular.module('partyBidApp')
         }
        // localStorage.setItem('name',$scope.activity);
         $scope.refresh();
+//        $scope.mesages= $.grep($scope.Messages,function(i){
+//                    return i<2;
+//        });
+//        console.log($scope.mesages);
+       // localStorage.setItem("sta",pan);
         localStorage.setItem("status",activity_status);
     });

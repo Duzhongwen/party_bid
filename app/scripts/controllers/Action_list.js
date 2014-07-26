@@ -27,6 +27,8 @@ angular.module('partyBidApp')
         if(list1==0){
             $location.path('/main');
         }
+       // var Sta=localStorage.getItem("sta");
+       // console.log(Sta);
         $scope.Items=localStorage.getItem('Item');
         $scope.enter_Registration=function(list){
            localStorage.setItem('action_name',list);
