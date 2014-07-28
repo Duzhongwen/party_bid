@@ -34,7 +34,6 @@ angular.module('partyBidApp')
         var storage_message=localStorage.getItem('action_name')+"messages";
         var activity_status;
         var item=localStorage.getItem('action_name');
-        console.log(item);
         var pan;
         //$scope.number=0;
         $scope.refresh = function (){
@@ -52,13 +51,13 @@ angular.module('partyBidApp')
 //                pan=true;//活动开启状态，返回true
 //            }
     }
-
         var New=localStorage.getItem('news');
-        if(New!=0){
-            $scope.News=true;
+        console.log(New);
+        if(New!=null){
+            $scope.News=false;
         }
         else{
-            $scope.News=false;
+            $scope.News=true;
         }
         console.log($scope.News);
         $scope.start_order=function() {
@@ -72,6 +71,7 @@ angular.module('partyBidApp')
                 //$scope.activity=="开始";
                 if(confirm("确认要结束本次报名？")){
                     $scope.activity="开始";//点击是,结束报名
+                localStorage.setItem('Item',null);
                 }
                 else{
                     $scope.activity="结束 ";//点击否,继续报名
@@ -87,7 +87,6 @@ angular.module('partyBidApp')
             }
             localStorage.setItem("status",activity_status);
             localStorage.setItem('a',$scope.activity);
-
         }
         if($scope.activity == "结束") {
             activity_status=false;//正在报名
@@ -95,7 +94,7 @@ angular.module('partyBidApp')
         else {
             activity_status=true;
         }
-        console.log(a);
+
         $scope.refresh();
 //        $scope.mesages= $.grep($scope.Messages,function(i){
 //                    return i<2;
