@@ -27,7 +27,6 @@ angular.module('partyBidApp')
             }
         }
         $scope.show();
-        console.log($scope.activity);
         $scope.return_order = function () {
             $location.path('/');
         }
@@ -45,25 +44,11 @@ angular.module('partyBidApp')
             //$scope.name1 = namevar
             //$scope.number1 = number;
             //$scope.activity=name;
-//            if($scope.activity=="开始"){
-//                pan=false;//活动关闭状态，返回false
-//            }else{
-//                pan=true;//活动开启状态，返回true
-//            }
     }
-        var New=localStorage.getItem('news');
-        console.log(New);
-        if(New!=null){
-            $scope.News=false;
-        }
-        else{
-            $scope.News=true;
-        }
-        console.log($scope.News);
         $scope.start_order=function() {
             if($scope.activity=="开始"){
                 $scope.activity="结束";
-                       $scope.refresh();
+                $scope.refresh();
                 localStorage.setItem('Item',item);
                 // $scope.number=localStorage.getItem('number');
                 //报名处于为开始状态点击的开始
@@ -88,18 +73,38 @@ angular.module('partyBidApp')
             localStorage.setItem("status",activity_status);
             localStorage.setItem('a',$scope.activity);
         }
+        var items=localStorage.getItem('Item');
+        var action_name=localStorage.getItem('action_name');
+//        console.log("items==action_name");
+//        console.log(items==action_name);
         if($scope.activity == "结束") {
             activity_status=false;//正在报名
         }
         else {
             activity_status=true;
         }
-
+        if(items==action_name)
+        {
+            $scope.activity="结束 ";
+        }
+        else
+        {
+            $scope.activity="开始";
+            var New=localStorage.getItem('news');
+            if(New=='null'){
+                $scope.News=false;
+            }else{
+                $scope.News=true;
+            }
+        }
         $scope.refresh();
+
+        console.log($scope.News);
 //        $scope.mesages= $.grep($scope.Messages,function(i){
 //                    return i<2;
 //        });
 //        console.log($scope.mesages);
 //        localStorage.setItem("sta",pan);
         localStorage.setItem("status",activity_status);
+
     });
