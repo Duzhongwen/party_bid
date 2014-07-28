@@ -1,0 +1,24 @@
+<header id="Registration">
+    报名{{nums}}人
+    <div class="header-left">
+        <button  class="btn-style btn-4" ng-click="return_order()">返回</button>
+    </div>
+    <div class="header-right">
+        <button  class="btn-style btn-4" ng-click="start_order()" ng-disable={{News}}>{{activity}}</button>
+</div>
+</header>
+
+<div class="wrapper scrollable">
+    <ul class="list-style-2">
+        <li class=" clearfix btn-default" ng-repeat="messages in Messages">
+            <h3 >{{messages}}</h3>
+
+        </li>
+    </ul>
+</div>
+<footer>
+    <ul class="footer-nav footer-nav-2tabs">
+        <li><a><br/>报名</a></li>
+        <li><a><br/>竞价</a></li>
+    </ul>
+    </footer>

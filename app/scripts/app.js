@@ -27,9 +27,9 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/Creat_Action',{
-            templateUrl: 'views/Creat_Action.html',
-            controller: 'Creat_ActionCtrl'
+      .when('/Registration',{
+            templateUrl: 'views/Registration.html',
+            controller: 'RegistrationCtrl'
         })
       .when('/main',{
             templateUrl: 'views/main.html',

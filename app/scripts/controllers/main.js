@@ -30,7 +30,7 @@ angular.module('partyBidApp')
                     $scope.warn="活动名称重复，重新输入";
                 }
                 else{
-                    $location.path('/Creat_Action');
+                    $location.path('/Registration');
                     list_json.unshift(action_name);
                     localStorage['Action_name'] = JSON.stringify(list_json);
                 }

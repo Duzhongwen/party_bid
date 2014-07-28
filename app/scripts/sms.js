@@ -26,13 +26,12 @@ var native_accessor = {
         }
         else{
             var storage_message=localStorage.getItem('action_name')+"messages";
-            var i=0;
-            i=localStorage.getItem('a');
-            var count=0;
-            i++;
-            count=count+i;
-            localStorage.setItem('a',i);
-
+//            var i=0;
+//            i=localStorage.getItem('a');
+//            var count=0;
+//            i++;
+//            count=count+i;
+//            localStorage.setItem('a',i);
             var phone_number=json_message.messages[0].phone;
             var name=json_message.messages[0].message;
             var Message=JSON.parse(localStorage[storage_message] || '[]');

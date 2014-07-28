@@ -30,8 +30,9 @@ angular.module('partyBidApp')
        // console.log(Sta);
         $scope.Items=localStorage.getItem('Item');
         console.log($scope.Items);
+        localStorage.setItem('news',$scope.Items);
         $scope.enter_Registration=function(list){
            localStorage.setItem('action_name',list);
-           $location.path('/Creat_Action');
+           $location.path('/Registration');
         }
     });
