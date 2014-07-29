@@ -12,42 +12,39 @@ var native_accessor = {
         }
     },
     process_received_message: function (json_message) {
-        //var message_json=JSON.stringify(json_message);//将json_message转化为字符串
         var Status=localStorage.getItem("status");
-        console.log(Status);
+
         if(Status=='true'){
-            console.log("对不起，活动报名尚未开始");
-//            if(json_message==0) {
-//                console.log("对不起，活动报名已结束");
-//            }
-//            else{
-//                console.log("对不起，活动报名尚未开始");
+//            if() {
+                console.log("对不起，活动报名尚未开始");
+//            }else{
+//
 //            }
         }
         else{
-            var storage_message=localStorage.getItem('action_name')+"messages";
-//            var i=0;
-//            i=localStorage.getItem('a');
-//            var count=0;
-//            i++;
-//            count=count+i;
-//            localStorage.setItem('a',i);
-            var phone_number=json_message.messages[0].phone;
-            var name=json_message.messages[0].message;
+            var storage_message=  localStorage.getItem('action_name')+"messages";
+            var message=json_message.messages[0];
             var Message=JSON.parse(localStorage[storage_message] || '[]');
-            console.log("Message:"+Message);
-            Message.unshift(name,phone_number);
-            localStorage[storage_message] = JSON.stringify(Message);
-            //localStorage.setItem("number",phone_number);
-            //localStorage.setItem("name",name);
-
+            Message.unshift(message);
+            var boolean_repeat;
+            for(var i=1;i<Message.length;i++){
+                var s=Message[i].phone;
+                if(message.phone==s){
+                    boolean_repeat=true;
+                }
+            }
+            if(boolean_repeat){
+                console.log("号码重复，请重新确认");
+            }
+            else{
+                console.log("恭喜你，报名成功");
+                localStorage[storage_message] = JSON.stringify(Message);
+            }
             var RegistrationScope = angular.element("#Registration").scope();
             RegistrationScope.$apply(function () {
-                RegistrationScope.refresh();
+            RegistrationScope.refresh();
             })
-                console.log("恭喜你，报名成功");
         }
-
     }
 };
     function notify_message_received(json_message) {

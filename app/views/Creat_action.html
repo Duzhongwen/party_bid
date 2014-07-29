@@ -1,0 +1,17 @@
+<div class="jumbotron">
+    <header>
+        创建活动
+        <div class="header-left">
+            <button  class="btn-style btn-4" ng-click="return1_order()" ng-hide="listlength==0">返回</button>
+        </div>
+    </header>
+</div>
+        <div class="wrapper">
+            <p>活动名称  :<p>
+            <p><input  type="text"  class="input-full"  ng-model="action_name" style="height: 40px"><p>
+            <div style=" color: red">
+                {{warn}}
+            </div>
+            <button  class="btn btn-style btn-2"  ng-click="creat_order(action_name)" ng-disabled="!action_name" style=" height: 40px">创建</button>
+        </p></div>
+

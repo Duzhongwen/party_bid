@@ -4,15 +4,15 @@
         <button  class="btn-style btn-4" ng-click="return_order()">返回</button>
     </div>
     <div class="header-right">
-        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{News}}">{{activity}}</button>
+        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{Button_states}}">{{activity}}</button>
 </div>
 </header>
 
 <div class="wrapper scrollable">
     <ul class="list-style-2">
         <li class=" clearfix btn-default" ng-repeat="messages in Messages">
-            <h3 >{{messages}}</h3>
-
+            <h3 style="height: 30px">姓名：  {{messages.message}}</h3>
+            <p>电话号码：{{messages.phone}}</p>
         </li>
     </ul>
 </div>

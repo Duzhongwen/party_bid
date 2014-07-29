@@ -11,26 +11,17 @@
  */
 angular.module('partyBidApp')
     .controller('Action_listCtrl', function ($scope,$location) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
         $scope.action_order=function(){
-            $location.path('/main');
+            $location.path('/Creat_action');
         }
-        //$scope.Action_lname=
-          //  localStorage.getItem("Action_name");
         $scope.lists=JSON.parse(localStorage['Action_name'] || '[]');
-        var list1=JSON.parse(localStorage['Action_name'] || '[]');
-        if(list1==0){
-            $location.path('/main');
-        }
-       // var Sta=localStorage.getItem("sta");
-       // console.log(Sta);
+        (function init(){
+            if( $scope.lists==0){
+                $location.path('/Creat_action');
+            }
+        })();
         $scope.Items=localStorage.getItem('Item');
-        console.log($scope.Items);
-        localStorage.setItem('news',$scope.Items);
+        localStorage.setItem('Button_states',$scope.Items);
         $scope.enter_Registration=function(list){
            localStorage.setItem('action_name',list);
            $location.path('/Registration');
