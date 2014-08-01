@@ -10,7 +10,7 @@ List.Ongoing_activities_read=function(){
 }
 
 List.Storage_click_activity=function(list){
-    localStorage.setItem('action_name',list);
+    localStorage.setItem('actions_name',list);
 }
 
 List.Storage_Ongoing_activities=function(){

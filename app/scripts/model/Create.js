@@ -5,6 +5,11 @@ function Create(){
 
 }
 
+Create.set_create_action=function(action_name){
+    localStorage.setItem('actions_name',action_name);
+    console.log(action_name);
+}
+
 Create.get_Action_name=function(){//将活动名称整合为数组
     var list_Array= JSON.parse(localStorage['Action_name'] || '[]');
     return list_Array

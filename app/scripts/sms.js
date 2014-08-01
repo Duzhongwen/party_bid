@@ -22,9 +22,9 @@ var native_accessor = {
                 console.log("对不起，活动报名尚未开始");
         }
         if(Status=='false'){
-            var storage_message= Sign_up.get_activity_information();
+            Sign_up.get_activity_information();
             var message=json_message.messages[0];
-            var Message=JSON.parse(localStorage[storage_message] || '[]');
+            var Message=Sign_up.Conversion_registration_information();
             var Update_message=message.message.replace(/\s/g, "");
             message.message=Update_message.substr(2,6);
             Message.unshift(message);
@@ -48,7 +48,7 @@ var native_accessor = {
                 }else {
                     //native_accessor.send_sms(json_message.messages[0].phone,'恭喜你，报名成功');
                     console.log("恭喜你，报名成功");
-                    localStorage[storage_message] = JSON.stringify(Message);
+                    localStorage[Sign_up.get_activity_information()] = JSON.stringify(Message);
                 }
             }
             var RegistrationScope = angular.element("#Registration").scope();

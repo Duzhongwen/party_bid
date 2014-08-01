@@ -17,6 +17,7 @@ angular.module('partyBidApp')
                 else{
                     $location.path('/Registration');
                     Create.get_change_Action_name(action_name);
+                    Create.set_create_action(action_name);
                 }
         }
         $scope.return1_order=function(){

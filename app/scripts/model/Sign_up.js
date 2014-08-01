@@ -14,11 +14,11 @@ Sign_up.get_button=function(){
 //}
 
 Sign_up.get_activity_information=function(){
-    return localStorage.getItem('action_name') + "messages";
+    return localStorage.getItem('actions_name') + "messages";
 }
 
 Sign_up.get_click_activity=function(){
-    return localStorage.getItem('action_name');
+    return localStorage.getItem('actions_name');
 }
 
 Sign_up.Conversion_registration_information=function(){

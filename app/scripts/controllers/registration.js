@@ -12,6 +12,9 @@
  */
 angular.module('partyBidApp')
     .controller('RegistrationController', function ($scope,$location) {
+        var activity_status;
+        var items = List.Ongoing_activities_read();
+        var action_name = Sign_up.get_click_activity();
         $scope.activity = Sign_up.get_button();
         ($scope.show = function () {
             if ($scope.activity == null) {
@@ -27,7 +30,6 @@ angular.module('partyBidApp')
         function Button_judgment(){
             return ($scope.activity == "开始")
         }
-        var activity_status;
         Sign_up.get_activity_information();
         $scope.refresh = function () {
             $scope.Messages = Sign_up.Conversion_registration_information();
@@ -54,8 +56,6 @@ angular.module('partyBidApp')
             localStorage.setItem("status",  Button_judgment());
             localStorage.setItem('button', $scope.activity);
         }
-            var items = List.Ongoing_activities_read();
-            var action_name = Sign_up.get_click_activity();
             Button_judgment();
             localStorage.setItem("status",  Button_judgment());
             if (items != action_name) {
@@ -67,6 +67,5 @@ angular.module('partyBidApp')
                     localStorage.setItem("status",activity_status);
                 })()
             }
-
             $scope.refresh();
         });
