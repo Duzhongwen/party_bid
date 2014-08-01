@@ -2,8 +2,8 @@
 //notify_message_received({"messages":[{"create_date":"Tue Jan 15 15:28:44 格林尼治标准时间+0800 2013","message":"jj308","phone":"18733171780"}]})
 var native_accessor = {
     send_sms: function (phone, message) {
-//        native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
-//        console.log(phone, message);
+       //native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
+         // console.log(phone, message);
     },
 
     receive_message: function (json_message) {
@@ -13,32 +13,43 @@ var native_accessor = {
     },
     process_received_message: function (json_message) {
         var Status=localStorage.getItem("status");
-
         if(Status=='true'){
-//            if() {
-                console.log("对不起，活动报名尚未开始");
-//            }else{
-//
-//            }
+           // native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名已结束');
+                console.log("对不起，活动报名已结束");
         }
-        else{
-            var storage_message=  localStorage.getItem('action_name')+"messages";
+        if(Status=='undefined'){
+            //native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名尚未开始');
+                console.log("对不起，活动报名尚未开始");
+        }
+        if(Status=='false'){
+            var storage_message= Sign_up.get_activity_information();
             var message=json_message.messages[0];
             var Message=JSON.parse(localStorage[storage_message] || '[]');
+            var Update_message=message.message.replace(/\s/g, "");
+            message.message=Update_message.substr(2,6);
             Message.unshift(message);
-            var boolean_repeat;
+            function BM_judgment(){
+                return (Update_message.search(/bm/i) == 0);
+            }
             for(var i=1;i<Message.length;i++){
                 var s=Message[i].phone;
-                if(message.phone==s){
-                    boolean_repeat=true;
+                function Phone_judgment(){
+                    return  (message.phone==s);
                 }
             }
-            if(boolean_repeat){
+            if(Phone_judgment()){
+                //native_accessor.send_sms(json_message.messages[0].phone,'号码重复，请重新确认');
                 console.log("号码重复，请重新确认");
             }
             else{
-                console.log("恭喜你，报名成功");
-                localStorage[storage_message] = JSON.stringify(Message);
+                if(!BM_judgment()){
+                   // native_accessor.send_sms(json_message.messages[0].phone,'请输入正确的报名信息');
+                  console.log("请输入正确的报名信息");
+                }else {
+                    //native_accessor.send_sms(json_message.messages[0].phone,'恭喜你，报名成功');
+                    console.log("恭喜你，报名成功");
+                    localStorage[storage_message] = JSON.stringify(Message);
+                }
             }
             var RegistrationScope = angular.element("#Registration").scope();
             RegistrationScope.$apply(function () {

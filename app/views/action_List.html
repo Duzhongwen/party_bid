@@ -1,0 +1,14 @@
+<header>
+    活动列表
+    <div class="header-right">
+        <button class="btn-style btn-4" ng-click="action_order()">创建活动</button>
+    </div>
+</header>
+    <div id="wrapper" class="wrapper scrollable">
+        <ul class="list-style-2">
+            <li class=" clearfix btn-default"  ng-repeat="list in lists " ng-click='enter_Registration(list)'style="height: 40px">
+                <p  class=" pagination-centered {{Items==list}}" style="height: 40px;">{{list}}</p>
+                <span class="glyphicon  p-right"></span>
+            </li>
+        </ul>
+    </div>
