@@ -3,9 +3,10 @@
     <div class="header-left">
         <button  class="btn-style btn-4" ng-click="return_order()">返回</button>
     </div>
-    <div class="header-right">
-        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{button_states}}">{{activity}}</button>
-</div>
+    <div class="header-right" ng-switch="buttons">
+        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{button_states}}" ng-switch-when=true>开始</button>
+        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{button_states}}" ng-switch-when=false>结束</button>
+    </div>
 </header>
 <div class="wrapper scrollable">
     <ul class="list-style-2">

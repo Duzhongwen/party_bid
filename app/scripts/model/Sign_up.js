@@ -5,20 +5,21 @@ function Sign_up(){
 
 }
 
-Sign_up.get_button=function(){
-    var button = localStorage.getItem('button');
-    return button;
+Sign_up.Judge_action=function(activity_name){
+    var action=Create.get_Action_information();
+    for(var i=0;i<action.length;i++){
+        if(action[i].activity==activity_name){
+            return action[i].states;
+        }
+    }
 }
-//Sign_up.set_button=function(){
-//    localStorage.setItem('button', activity);
-//}
 
 Sign_up.get_activity_information=function(){
     return localStorage.getItem('actions_name') + "messages";
 }
 
-Sign_up.get_click_activity=function(){
-    return localStorage.getItem('actions_name');
+Sign_up.State_switch=function(){
+    var action=Create.get_Action_information();
 }
 
 Sign_up.Conversion_registration_information=function(){
@@ -28,4 +29,3 @@ Sign_up.Conversion_registration_information=function(){
 Sign_up.Assignment_ongoing_activity=function(){
     localStorage.setItem('Item', Sign_up.get_click_activity());
 }
-

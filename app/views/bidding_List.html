@@ -4,13 +4,13 @@
         <button  class="btn-style btn-4" ng-click="return_list()">返回</button>
     </div>
     <div class="header-right">
-        <button  class="btn btn-style btn-4" ng-click="start_bidding()">开始</button>
+        <button  class="btn btn-style btn-4" ng-click="start_bidding()" ng-disabled="{{bidding_name!='null'}}">开始</button>
     </div>
 </header>
 <div  class="wrapper scrollable">
     <ul class="list-style-2">
-        <li class=" clearfix btn-default"  ng-repeat="name in names" style="height: 40px">
-            <p   class=" pagination-centered" style="height: 40px;">{{name}}</p>
+        <li class=" clearfix btn-default"  ng-repeat="name in names" ng-click="enter_bidding(name)" style="height: 40px">
+            <p class=" pagination-centered {{bidding_name==name}}" style="height: 40px;">{{name}}</p>
             <span class="glyphicon  p-right"></span>
         </li>
     </ul>

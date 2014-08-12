@@ -9,15 +9,15 @@
  */
 angular.module('partyBidApp')
   .controller('Create_actionController', function ($scope,$location) {
-        $scope.list=Create.get_Action_name();
+        $scope.list=Create.get_Action_information();
         $scope.creat_order=function(action_name){
-                if(Create.inquire_action(action_name)){
-                    $scope.warn="活动名称重复，重新输入";
-                }
-                else{
-                    $location.path('/Registration');
-                    Create.get_change_Action_name(action_name);
-                    Create.set_create_action(action_name);
+            if(Create.inquire_action(action_name)){
+                $scope.warn="活动名称重复，重新输入";
+            }
+            else{
+                var create=new  Create(action_name,true,false);
+                $location.path('/Registration/'+action_name);
+                create.get_change_Action_name();
                 }
         }
         $scope.return1_order=function(){

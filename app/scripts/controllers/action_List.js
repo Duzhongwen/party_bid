@@ -14,7 +14,7 @@ angular.module('partyBidApp')
         $scope.action_order=function(){
             $location.path('/Create_action');
         }
-        $scope.lists=Create.get_Action_name();
+        $scope.lists=Create.get_Action_information();
         (function init(){//自动跳转创建活动页面
             if( $scope.lists==0){
                 $location.path('/Create_action');
@@ -22,8 +22,7 @@ angular.module('partyBidApp')
         })();
         $scope.Items=List.Ongoing_activities_read();
         List.Storage_Ongoing_activities();
-        $scope.enter_Registration=function(list){
-            List.Storage_click_activity(list);
-           $location.path('/Registration');
+        $scope.enter_Registration=function(activity){
+           $location.path('/Registration/'+activity);
         }
     });

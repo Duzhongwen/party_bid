@@ -23,7 +23,7 @@ angular
         templateUrl: 'views/action_List.html',
         controller: 'Action_listController'
       })
-      .when('/Registration',{
+      .when('/Registration/:activity',{
             templateUrl: 'views/registration.html',
             controller: 'RegistrationController'
         })
