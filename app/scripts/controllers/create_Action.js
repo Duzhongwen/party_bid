@@ -15,7 +15,7 @@ angular.module('partyBidApp')
                 $scope.warn="活动名称重复，重新输入";
             }
             else{
-                var create=new  Create(action_name,true,false);
+                var create=new  Create(action_name,'unstart',false);
                 $location.path('/Registration/'+action_name);
                 create.get_change_Action_name();
                 }

@@ -14,22 +14,26 @@ angular.module('partyBidApp')
         $scope.return_order = function () {
             $location.path('/');
         }
-        var activity_name=$routeParams.activity;
-        $scope.buttons=Sign_up.Judge_action(activity_name);
+        $scope.buttons=Sign_up.Judge_action($routeParams.activity);
         $scope.bidding=function(){
             $location.path('/Bidding_list');
         }
         function Button_judgment(){
             return $scope.buttons;
         }
-        Sign_up.get_activity_information();
+   //     Sign_up.get_activity_information();
         $scope.refresh = function (){
-            $scope.Messages = Sign_up.Conversion_registration_information();
+            $scope.Messages = Sign_up.Conversion_registration_information($routeParams.activity);
             $scope.nums = $scope.Messages.length;
         }
         $scope.start_order=function(){
             $scope.buttons=false;
-
+            Sign_up.State_switch($routeParams.activity,false);
+        }
+        $scope.end_order=function(){
+            if(confirm("是否要结束报名")){
+                Sign_up.State_switch($routeParams.activity,true);
+            }
         }
         $scope.refresh();
     });

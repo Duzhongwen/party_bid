@@ -20,8 +20,7 @@ angular.module('partyBidApp')
                 $location.path('/Create_action');
             }
         })();
-        $scope.Items=List.Ongoing_activities_read();
-        List.Storage_Ongoing_activities();
+        $scope.Items=Sign_up.Judge_Ongoing_action1();
         $scope.enter_Registration=function(activity){
            $location.path('/Registration/'+activity);
         }

@@ -13,14 +13,14 @@ var native_accessor = {
     process_received_message: function (json_message) {
         var messages=json_message.messages[0].message.replace(/\s/g,"");
         if (messages.search(/bm/i)==0) {
-            var Status = localStorage.getItem("status");
-            if (Status == 'true') {
+             var Status=Judge_Ongoing_action();
+            if (Status == true) {
                  native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名已结束');
             }
-            if (Status == 'undefined') {
+            if (Status == "unstart") {
                 native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名尚未开始');
             }
-            if (Status == 'false') {
+            if (Status== false) {
                 Sign_up.get_activity_information();
                 var message = json_message.messages[0];
                 var Message = Sign_up.Conversion_registration_information();
@@ -42,10 +42,8 @@ var native_accessor = {
                 else {
                     if (!BM_judgment()) {
                         native_accessor.send_sms(json_message.messages[0].phone,'请输入正确的报名信息');
-                        //console.log("请输入正确的报名信息");
                     } else {
                         native_accessor.send_sms(json_message.messages[0].phone,'恭喜你，报名成功');
-                        //console.log("恭喜你，报名成功");
                         localStorage[Sign_up.get_activity_information()] = JSON.stringify(Message);
                     }
                 }
@@ -65,3 +63,10 @@ var native_accessor = {
     native_accessor.receive_message(json_message);
     }
 
+Judge_Ongoing_action=function(){
+    var action_information =Create.get_Action_information();
+    var state= _.find(action_information,function(list){
+        return list.states==false;
+    });
+    return state.states;
+}
