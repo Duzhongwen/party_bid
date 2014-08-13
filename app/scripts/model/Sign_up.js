@@ -5,7 +5,7 @@ function Sign_up(){
 
 }
 
-Sign_up.Judge_action=function(activity_name){  //获取并返回当前活动的states
+Sign_up.Judge_action=function(activity_name){  //获取并返回当前点击活动的states
     var action=Create.get_Action_information();
     var state= _.find(action,function(list){
         return list.activity==activity_name;
@@ -23,7 +23,6 @@ Sign_up.Judge_Ongoing_action1=function(){
     }catch(err){
         return null;
     }
-
 }
 
 Sign_up.get_activity_information=function(){
@@ -44,4 +43,23 @@ Sign_up.Conversion_registration_information=function(click_activity){
     return JSON.parse(localStorage[click_activity+'messages'] || '[]');
 }
 
+Sign_up.State_switch1=function(activity_name,value){  //点击开始，完成states状态切换
+    var action=Create.get_Action_information();
+    var states= _.find(action,function(list){
+        return list.activity==activity_name;
+    });
+    var index = _.indexOf(action, states);
+    console.log(states.states==true ||states.states=='unstart');
+    if(states.states==true ||states.states=='unstart'&&Judge_Ongoing_action()!=null) {//判断有没有活动正在进行，点击的活动是不是当前活动
+        action[index].available = value;
+        localStorage['Action_information'] = JSON.stringify(action);
+    }
+}
 
+Sign_up.Judge_available=function(activity_name){  //获取并返回当前点击活动的states
+    var action=Create.get_Action_information();
+    var state= _.find(action,function(list){
+        return list.activity==activity_name;
+    });
+    return state.available;
+}

@@ -23,5 +23,6 @@ angular.module('partyBidApp')
         $scope.Items=Sign_up.Judge_Ongoing_action1();
         $scope.enter_Registration=function(activity){
            $location.path('/Registration/'+activity);
+           Sign_up.State_switch1(activity,true);
         }
     });

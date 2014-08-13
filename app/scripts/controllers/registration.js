@@ -14,6 +14,7 @@ angular.module('partyBidApp')
         $scope.return_order = function () {
             $location.path('/');
         }
+        $scope.button_states=Sign_up.Judge_available($routeParams.activity);
         $scope.buttons=Sign_up.Judge_action($routeParams.activity);
         $scope.bidding=function(){
             $location.path('/Bidding_list');
@@ -33,6 +34,7 @@ angular.module('partyBidApp')
         $scope.end_order=function(){
             if(confirm("是否要结束报名")){
                 Sign_up.State_switch($routeParams.activity,true);
+                
             }
         }
         $scope.refresh();
