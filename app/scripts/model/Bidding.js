@@ -5,10 +5,6 @@ function Bidding() {
 
 }
 
-Bidding.Initialization_activity=function(){//初始化进行的活动
-    localStorage.setItem('Item',null);
-}
-
 Bidding.Initialization_bidding=function(){//初始化正在进行的竞价
     localStorage.setItem('bidding_name',null);
 }

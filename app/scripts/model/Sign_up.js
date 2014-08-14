@@ -5,7 +5,7 @@ function Sign_up(){
 
 }
 
-Sign_up.Judge_action=function(activity_name){  //获取并返回当前点击活动的states
+Sign_up.Judge_action=function(activity_name){  //获取并返回当前点击活动的states                 （5）
     var action=Create.get_Action_information();
     var state= _.find(action,function(list){
         return list.activity==activity_name;
@@ -13,7 +13,7 @@ Sign_up.Judge_action=function(activity_name){  //获取并返回当前点击活�
     return state.states;
 }
 
-Sign_up.Judge_Ongoing_action1=function(){
+Sign_up.Judge_Ongoing_action1=function(){     //判断正在进行的活动并返回活动名                   （4）
     var action_information =Create.get_Action_information();
     var state= _.find(action_information,function(list){
         return list.states==false;
@@ -29,7 +29,7 @@ Sign_up.get_activity_information=function(){
     return Sign_up.Judge_Ongoing_action1()+ "messages";
 }
 
-Sign_up.State_switch=function(activity_name,value){  //点击开始，完成states状态切换
+Sign_up.State_switch=function(activity_name,value){  //点击开始，完成states状态切换               （3）
     var action=Create.get_Action_information();
     var states= _.find(action,function(list){
         return list.activity==activity_name;
@@ -43,7 +43,7 @@ Sign_up.Conversion_registration_information=function(click_activity){
     return JSON.parse(localStorage[click_activity+'messages'] || '[]');
 }
 
-Sign_up.State_switch1=function(activity_name,value){  //点击开始，完成states状态切换
+Sign_up.State_switch1=function(activity_name,value){  //点击开始，完成states状态切换               （1）
     var action=Create.get_Action_information();
     var states= _.find(action,function(list){
         return list.activity==activity_name;
@@ -56,7 +56,7 @@ Sign_up.State_switch1=function(activity_name,value){  //点击开始，完成sta
     }
 }
 
-Sign_up.Judge_available=function(activity_name){  //获取并返回当前点击活动的states
+Sign_up.Judge_available=function(activity_name){  //获取并返回当前点击活动的states                  （2）
     var action=Create.get_Action_information();
     var state= _.find(action,function(list){
         return list.activity==activity_name;

@@ -4,8 +4,8 @@
         <button  class="btn-style btn-4" ng-click="return_order()">返回</button>
     </div>
     <div class="header-right" ng-switch="buttons">
-        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{button_states}}" ng-switch-when="unstart">开始</button>
-        <button  class="btn btn-style btn-4" ng-click="end_order()" ng-disabled="{{button_states}}" ng-switch-when=false>结束</button>
+        <button  class="btn btn-style btn-4" ng-click="start_order()" ng-disabled="{{button_states}}" ng-switch-when=false>开始</button>
+        <button  class="btn btn-style btn-4" ng-click="end_order()" ng-disabled="{{button_states}}"  ng-switch-when=true>结束</button>
     </div>
 </header>
 <div class="wrapper scrollable">

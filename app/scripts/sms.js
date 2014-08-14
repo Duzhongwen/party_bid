@@ -14,10 +14,10 @@ var native_accessor = {
         var messages=json_message.messages[0].message.replace(/\s/g,"");
         if (messages.search(/bm/i)==0) {
              var Status=Judge_Ongoing_action();
-            if (Status == true) {
-                 native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名已结束');
-            }
-            if (Status == "unstart") {
+//            if (Status == true) {
+//                 native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名已结束');
+//            }
+            if (Status == null) {
                 native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名尚未开始');
             }
             if (Status== false) {
@@ -63,10 +63,14 @@ var native_accessor = {
     native_accessor.receive_message(json_message);
     }
 
-Judge_Ongoing_action=function(){
+Judge_Ongoing_action=function(){   //判断有没有进行的活动并返回活动状态                 （6）
     var action_information =Create.get_Action_information();
     var state= _.find(action_information,function(list){
         return list.states==false;
     });
-    return state.states;
+    try {
+        return state.states;
+    }catch(err){
+        return null;
+    }
 }

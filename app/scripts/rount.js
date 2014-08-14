@@ -26,19 +26,19 @@ angular
       .when('/Registration/:activity',{
             templateUrl: 'views/registration.html',
             controller: 'RegistrationController'
-        })
+      })
       .when('/Create_action',{
             templateUrl: 'views/create_Action.html',
             controller: 'Create_actionController'
-        })
-        .when('/Bidding_list',{
+      })
+      .when('/Bidding_list/:action',{
             templateUrl: 'views/bidding_List.html',
             controller: 'Bidding_listController'
-        })
-        .when('/Bidding',{
+      })
+      .when('/Bidding/:ongoing_action',{
             templateUrl: 'views/bidding.html',
             controller: 'BiddingController'
-        })
+      })
       .otherwise({
         redirectTo: '/'
       });

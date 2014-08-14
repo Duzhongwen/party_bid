@@ -5,8 +5,5 @@
 function List(){
 
 }
-List.Ongoing_activities_read=function(){
-    var ongoing_activity=localStorage.getItem('Item');
-    return ongoing_activity;
-}
+
 

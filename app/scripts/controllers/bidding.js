@@ -10,10 +10,10 @@
  * Controller of the partyBidApp
  */
 angular.module('partyBidApp')
-    .controller('BiddingController', function ($scope,$location) {
+    .controller('BiddingController', function ($scope,$location,$routeParams) {
         Bidding.get_Inquiry_bidding();
         $scope.return=function(){
-            $location.path('/Bidding_list');
+            $location.path('/Bidding_list/'+$routeParams.ongoing_action);
         }
         Bidding.get_click_bidding();
         $scope.refresh = function () {
@@ -24,10 +24,6 @@ angular.module('partyBidApp')
         $scope.refresh();
         $scope.end=function(){
             if (confirm("确认要结束本次报名？")) {//点击是,结束竞价
-                localStorage.setItem('Button',false);
-                localStorage.setItem('a','null');
-                localStorage.setItem('c','null');
-                Bidding.Initialization_activity();
                 Bidding.Initialization_bidding();
             }
         }

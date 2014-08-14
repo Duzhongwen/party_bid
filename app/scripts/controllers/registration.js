@@ -15,9 +15,9 @@ angular.module('partyBidApp')
             $location.path('/');
         }
         $scope.button_states=Sign_up.Judge_available($routeParams.activity);
-        $scope.buttons=Sign_up.Judge_action($routeParams.activity);
+        $scope.buttons=(Sign_up.Judge_action($routeParams.activity)==false || Sign_up.Judge_action($routeParams.activity)==true);
         $scope.bidding=function(){
-            $location.path('/Bidding_list');
+            $location.path('/Bidding_list/'+$routeParams.activity);
         }
         function Button_judgment(){
             return $scope.buttons;
@@ -28,13 +28,14 @@ angular.module('partyBidApp')
             $scope.nums = $scope.Messages.length;
         }
         $scope.start_order=function(){
-            $scope.buttons=false;
+            $scope.buttons=true;
             Sign_up.State_switch($routeParams.activity,false);
         }
         $scope.end_order=function(){
             if(confirm("是否要结束报名")){
                 Sign_up.State_switch($routeParams.activity,true);
-                
+                Sign_up.State_switch1($routeParams.activity,true);
+                $location.path('/Bidding_list/'+$routeParams.activity);
             }
         }
         $scope.refresh();
