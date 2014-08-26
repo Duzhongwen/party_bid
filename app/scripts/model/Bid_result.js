@@ -11,3 +11,14 @@ Bid_result.get_bid_price=function(activity,bid_name){
     var lists = _.findWhere(list.bidding, {'bid_name': bid_name});
     return (_.sortBy(lists.information,'price'))
 };
+
+Bid_result.select_success_bid=function(list){
+    for(var i=0;i<list.length;i++){
+        for(var j=i+1;j<list.length;j++){
+            console.log(Boolean(!_.findWhere(list[j],{'price':list[i].price})));
+            if(!_.findWhere(list[j],{'price':list[i].price})){
+                return list[i];
+            }
+        }
+    }
+};

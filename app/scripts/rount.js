@@ -43,7 +43,7 @@ angular
             templateUrl: 'views/bid_Result.html',
             controller: 'Bid_ResultController'
       })
-      .when('/Price_statistics',{
+      .when('/Price_statistics/:action/:bid_name',{
             templateUrl: 'views/price_Statistics.html',
             controller: 'Price_StatisticsController'
       })
