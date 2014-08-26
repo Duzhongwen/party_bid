@@ -69,11 +69,32 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/rount.js"></script>
-        <script src="scripts/sms.js"></script>
-        <script src="scripts/controllers/Creat_action.js"></script>
-        <script src="scripts/controllers/Registration.js"></script>
-        <script src="scripts/controllers/Action_list.js"></script>
+    <script src="plugins/underscore.js"></script>
+    <script src="plugins/lib/cordova/cordova-2.1.0.js"></script>
+    <script src="plugins/lib/angular-mobile/mobile-nav.min.js"></script>
+    <script src="plugins/lib/zepto/zepto.js"></script>
+    <script src="plugins/lib/infrastructure/native.js"></script>
+    <script src="plugins/lib/jt-logic.js/conditions.js"></script>
+    <script src="plugins/lib/jt-logic.js/relations.js"></script>
+    <script src="plugins/lib/jt-logic.js/would.js"></script>
+    <script src="plugins/lib/jt-notify.js/notify.js"></script>
+    <script src="plugins/lib/jt/jt.js"></script>
+    <script src="plugins/lib/jt/JTObject.js"></script>
+    <script src="plugins/mobile.js"></script>
+    <script src="plugins/sms.js"></script>
+    <script src="scripts/rount.js"></script>
+    <script src="scripts/sms.js"></script>
+    <script src="scripts/model/Send_bidding.js"></script>
+    <script src="scripts/model/List.js"></script>
+    <script src="scripts/model/Create.js"></script>
+    <script src="scripts/model/Sign_up.js"></script>
+    <script src="scripts/model/Bidding.js"></script>
+    <script src="scripts/model/Bidding_list.js"></script>
+    <script src="scripts/controllers/bidding_List.js"></script>
+    <script src="scripts/controllers/bidding.js"></script>
+    <script src="scripts/controllers/create_Action.js"></script>
+    <script src="scripts/controllers/registration.js"></script>
+    <script src="scripts/controllers/action_List.js"></script>
         <!-- endbuild -->
 </body>
 </html>

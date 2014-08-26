@@ -1,16 +1,16 @@
-<header id="Bidding">
+<header >
     竞价{{nums}}人
     <div class="header-left">
         <button  class="btn-style btn-4" ng-click="return()">返回</button>
     </div>
     <div class="header-right">
-        <button  class="btn btn-style btn-4" ng-click="end()" ng-disabled="{{bidding_name=='null'}}">结束</button>
+        <button  class="btn btn-style btn-4" ng-click="statistics()">统计</button>
     </div>
 </header>
 <div class="wrapper scrollable">
     <ul class="list-style-2">
         <li class=" clearfix btn-default" ng-repeat="messages in Messages">
-            <h3 style="height: 30px">姓名：  {{messages.name}}</h3>
+            <h3 style="height: 30px">姓名：  {{messages.name}}</h3>￥{{messages.price}}
             <p>电话号码：{{messages.phone}}</p>
         </li>
     </ul>

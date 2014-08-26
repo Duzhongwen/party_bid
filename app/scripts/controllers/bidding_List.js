@@ -3,26 +3,20 @@
  */
 angular.module('partyBidApp')
     .controller('Bidding_listController', function ($scope,$location,$routeParams){
-        $scope.bidding_name= Bidding_list.get_bidding_information();
         $scope.start_bidding=function(){
-        $scope.names=Bidding_list.Create_bidding($routeParams.action);//竞价名数组
-        var name=$scope.names[0];
-        Bidding.Storage_click_bidding(name);
-        $location.path('/Bidding/'+$routeParams.action);
-       }
-        $scope.enter_bidding=function(name){
-            $location.path('/Bidding/'+$routeParams.action);
-            Bidding.Storage_click_bidding(name);
-        }
-        console.log($routeParams.action);
-        $scope.initiate = function (){
-            $scope.names = JSON.parse(localStorage[$routeParams.action+'biding_name']||'[]');
-        }
-        $scope.initiate();
+        Bidding_list.Create_bidding($routeParams.action);//竞价名数组
+        $scope.names= Bidding_list.get_bid_name($routeParams.action);
+        $location.path('/Bidding/'+$routeParams.action+'/'+$scope.names[0].bid_name);
+        };
+        $scope.names= Bidding_list.get_bid_name($routeParams.action);
+        $scope.bid_status=Bidding_list.jugement_bid_status($routeParams.action);
+        $scope.enter_bidding=function(bid_name){
+            $location.path('/Bidding/'+$routeParams.action+'/'+bid_name.bid_name);
+        };
         $scope.return_list=function(){
             $location.path('/');
-        }
+        };
         $scope.registration=function(){
             $location.path('/Registration/'+$routeParams.action);
         }
-    })
+    });

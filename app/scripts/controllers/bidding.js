@@ -11,21 +11,19 @@
  */
 angular.module('partyBidApp')
     .controller('BiddingController', function ($scope,$location,$routeParams) {
-        Bidding.get_Inquiry_bidding();
         $scope.return=function(){
             $location.path('/Bidding_list/'+$routeParams.ongoing_action);
-        }
-        Bidding.get_click_bidding();
+        };
         $scope.refresh = function () {
-            $scope.Messages =Bidding.Conversion_bidding_information();
-            $scope.nums = $scope.Messages.length;
-            $scope.JJName=Bidding_list.get_JJ_information();
-        }
+            $scope.Messages=Bidding.get_click_information($routeParams.ongoing_action,$routeParams.bid_name);
+            $scope.nums=$scope.Messages.length;
+        };//需要返回竞价着的号码和对应的报名信息中的名字
         $scope.refresh();
         $scope.end=function(){
             if (confirm("确认要结束本次报名？")) {//点击是,结束竞价
-                Bidding.Initialization_bidding();
+                Bidding_list.change_bidding_status($routeParams.ongoing_action);
+                $location.path('/Bid_result/'+$routeParams.ongoing_action+'/'+$routeParams.bid_name);
             }
-        }
-        $scope.bidding_name=Bidding_list.get_bidding_information();
-    })
+        };
+
+    });

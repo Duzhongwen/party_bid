@@ -13,7 +13,8 @@ angular.module('partyBidApp')
     .controller('Action_listController', function ($scope,$location) {
         $scope.action_order=function(){
             $location.path('/Create_action');
-        }
+        };
+        $scope.num=Bidding_list.jugement_ongoing_bid();
         $scope.lists=Create.get_Action_information();
         (function init(){//自动跳转创建活动页面
             if( $scope.lists==0){

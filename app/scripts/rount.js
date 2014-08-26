@@ -35,9 +35,17 @@ angular
             templateUrl: 'views/bidding_List.html',
             controller: 'Bidding_listController'
       })
-      .when('/Bidding/:ongoing_action',{
+      .when('/Bidding/:ongoing_action/:bid_name',{
             templateUrl: 'views/bidding.html',
             controller: 'BiddingController'
+      })
+      .when('/Bid_result/:action/:bid_name',{
+            templateUrl: 'views/bid_Result.html',
+            controller: 'Bid_ResultController'
+      })
+      .when('/Price_statistics',{
+            templateUrl: 'views/price_Statistics.html',
+            controller: 'Price_StatisticsController'
       })
       .otherwise({
         redirectTo: '/'

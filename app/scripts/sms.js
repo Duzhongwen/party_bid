@@ -21,19 +21,20 @@ var native_accessor = {
                 native_accessor.send_sms(json_message.messages[0].phone,'对不起，活动报名尚未开始');
             }
             if (Status== false) {
-                Sign_up.get_activity_information();
+                var sms_Array=SMS.get_sms_information();
                 var message = json_message.messages[0];
-                var Message = Sign_up.Conversion_registration_information();
                 var Update_message = message.message.replace(/\s/g, "");
                 message.message = Update_message.substr(2, 6);
-                Message.unshift(message);
+                var Message = new Sign_up(Sign_up.Judge_Ongoing_action1(),message);
                 function BM_judgment() {
                     return (Update_message.search(/bm/i) == 0);
                 }
-                for (var i = 1; i < Message.length; i++) {
-                    var s = Message[i].phone;
-                    function Phone_judgment() {
-                        return  (message.phone == s);
+                function Phone_judgment(){
+                    var list = _.findWhere(sms_Array,{'activity':Sign_up.Judge_Ongoing_action1()});
+                    try{
+                        return(_.findWhere(list.information,{'phone':json_message.messages[0].phone}));
+                    }catch(err){
+                        return false;
                     }
                 }
                 if (Phone_judgment()) {
@@ -44,7 +45,7 @@ var native_accessor = {
                         native_accessor.send_sms(json_message.messages[0].phone,'请输入正确的报名信息');
                     } else {
                         native_accessor.send_sms(json_message.messages[0].phone,'恭喜你，报名成功');
-                        localStorage[Sign_up.get_activity_information()] = JSON.stringify(Message);
+                        Message.storage_sms();
                     }
                 }
                 var RegistrationScope = angular.element("#Registration").scope();
