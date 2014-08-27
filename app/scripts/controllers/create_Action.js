@@ -19,9 +19,13 @@ angular.module('partyBidApp')
                 $location.path('/Registration/'+action_name);
                 create.get_change_Action_name();
                 }
-        }
+        };
         $scope.return1_order=function(){
             $location.path('/');
         }
 
   });
+//$('#winPerson').modal($routeParams.show_of_hide);
+//setTimeout(function(){
+//        $('#winPerson').modal('hide')}
+//    ,3000);
